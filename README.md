@@ -37,4 +37,4 @@ Keep CHECKOUT_ENABLED=false until the launch checks in docs/DEPLOYMENT.md pass. 
 
 ## Verification limits
 
-The original environment allowed built-in Node tests but blocked dependency registry access and direct Git cloning. CI is provided to perform type checking and production build on GitHub. Browser/mobile QA, Supabase integration, live Stripe payments, supplier orders, tax/shipping configuration, and domain verification must still be completed. No production deployment or DNS changes were made.
+The original environment allowed built-in Node tests but blocked dependency registry access and direct Git cloning. GitHub Actions successfully installed dependencies, passed both validation tests and TypeScript checks, and completed the Next.js production build for commit ca363f7539f5a9fe5f92730424af3b4929bafdec. Evidence: https://github.com/TheOddPhoenix/getthesaltstudio/actions/runs/41326489105 . Browser/mobile QA, Supabase integration, live Stripe payments, supplier orders, tax/shipping configuration, and domain verification must still be completed. No production deployment or DNS changes were made.
