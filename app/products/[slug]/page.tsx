@@ -1,0 +1,7 @@
+import {notFound} from 'next/navigation';
+import {products} from '../../../lib/db';
+import {money} from '../../../lib/catalog';
+import ProductArt from '../../../components/ProductArt';
+import AddToBag from '../../../components/AddToBag';
+export async function generateMetadata({params}:{params:Promise<{slug:string}>}){const {slug}=await params;const p=(await products()).find(p=>p.slug===slug&&p.active);return {title:p?.name||'Product',description:p?.description,alternates:{canonical:`/products/${slug}`}}}
+export default async function ProductPage({params}:{params:Promise<{slug:string}>}){const {slug}=await params;const p=(await products()).find(p=>p.slug===slug&&p.active);if(!p)notFound();const json={ '@context':'https://schema.org','@type':'Product',name:p.name,description:p.description,sku:p.id,brand:{'@type':'Brand',name:'Get the Salt Studio'}};return <section className="product-detail"><ProductArt kind={p.kind} symbol={p.symbol}/><div><p className="eyebrow">A LITTLE STRANGE. ALL YOURS.</p><h1>{p.name}</h1><p className="price">{money(p.price)}</p><p>{p.description}</p><AddToBag product={p}/><p className="notice">Preview product. Not currently available for purchase.</p><details><summary>Shipping & care</summary><p>Production times, materials, shipping destinations, and care details will be published after supplier samples are approved.</p></details></div><script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify(json).replace(/</g,'\\u003c')}}/></section>}

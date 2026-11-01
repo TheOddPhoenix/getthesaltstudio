@@ -1,0 +1,1 @@
+export default function ProductArt({kind,symbol}:{kind:'shirt'|'mug';symbol:string}){return <div className={`product-art ${kind}`} role="img" aria-label={`Illustrated ${kind} placeholder; final product photography pending`}><div className="object"><span>{symbol}</span><b>GET THE SALT</b><small>STAY STRANGE</small></div><em>CONCEPT / PLACEHOLDER</em></div>}

@@ -1,0 +1,5 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {validateItems,validateProduct} from '../lib/validation.mjs';
+test('rejects malformed, duplicate and excessive checkout quantities',()=>{for(const value of [null,[],[{productId:'a',variantId:'s',quantity:0}],[{productId:'a',variantId:'s',quantity:11}],[{productId:'a',variantId:'s',quantity:1.5}],[{productId:'a',variantId:'s',quantity:1},{productId:'a',variantId:'s',quantity:1}]])assert.equal(validateItems(value),false);assert.equal(validateItems([{productId:'a',variantId:'s',quantity:2}]),true)});
+test('catalog rejects invalid prices and path-like slugs',()=>{const p={id:'tee',slug:'tee',name:'Tee',collection:'folk-and-fable',kind:'shirt',price:3200,description:'Cotton',symbol:'☾',active:false,variants:[{id:'s',label:'S'}]};assert.equal(validateProduct(p),true);for(const change of [{price:-1},{price:NaN},{slug:'../studio'},{variants:[]},{variants:[{id:'s',label:'S',stripePriceId:'javascript:bad'}]}])assert.equal(validateProduct({...p,...change}),false)});
