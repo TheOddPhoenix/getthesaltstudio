@@ -1,8 +1,11 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import { Rye } from 'next/font/google';
 import Brand from '../components/Brand';
 import FolkIcon from '../components/FolkIcon';
 import './globals.css';
+
+const westernDisplay = Rye({ subsets: ['latin'], weight: '400', display: 'swap', variable: '--font-western' });
 
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://getthesaltstudio.com'),
@@ -12,7 +15,7 @@ export const metadata: Metadata = {
 };
 
 export default function Layout({ children }: { children: React.ReactNode }) {
-  return <html lang="en"><body>
+  return <html lang="en"><body className={westernDisplay.variable}>
     <a className="skip" href="#main">Skip to content</a>
     <div className="announcement"><span aria-hidden="true">—</span><FolkIcon kind="truck"/> FREE U.S. SHIPPING ON ORDERS $75+ <span aria-hidden="true">—</span></div>
     <header className="site-header">

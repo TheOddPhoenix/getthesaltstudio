@@ -7,7 +7,7 @@
   --gold: #d5a249;
   --red: #7b211e;
   --line: #716039;
-  --display: Rockwell, "Bookman Old Style", Georgia, serif;
+  --display: var(--font-western), Georgia, serif;
 }
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
@@ -19,7 +19,7 @@ button, a, select, summary { touch-action: manipulation; }
 button { cursor: pointer; }
 button:disabled, input:disabled { cursor: not-allowed; }
 :focus-visible { outline: 2px solid var(--gold); outline-offset: 5px; }
-h1, h2, h3 { font-family: var(--display); font-weight: 900; line-height: 1.05; }
+h1, h2, h3 { font-family: var(--display); font-weight: 400; font-synthesis: none; line-height: 1.05; }
 h1 { font-size: clamp(38px, 5vw, 66px); margin: 16px 0 24px; }
 h2 { font-size: clamp(26px, 3.1vw, 40px); margin: 10px 0 25px; }
 h3 { font-size: 25px; }
@@ -33,9 +33,10 @@ h3 { font-size: 25px; }
 .brand-mark { position: relative; width: 85px; height: 94px; flex-shrink: 0; color: var(--gold); }
 .brand-mark .folk-icon:first-child { width: 85px; height: 94px; stroke-width: 0; }
 .brand-mark .folk-icon:last-child { position: absolute; width: 52px; height: 66px; right: 0; bottom: 5px; stroke-width: 0; }
-.brand-type { display: flex; flex-direction: column; text-align: center; font-family: var(--display); font-weight: 900; line-height: .96; }
+.brand-type { display: flex; flex-direction: column; text-align: center; font-family: var(--display); font-weight: 400; line-height: .96; }
 .brand-type > span { font-size: 26px; }
 .brand-type strong { font-size: 49px; letter-spacing: 2px; }
+.brand-type strong { font-weight: 400; }
 .brand-type small { font-size: 18px; letter-spacing: 5px; margin-top: 5px; }
 .header-motto { color: var(--gold); font-size: 12px; letter-spacing: 1.1px; text-align: center; margin: 12px 0 20px; white-space: nowrap; }
 .header-motto span, .hero-motto span { margin: 0 10px; }
@@ -52,6 +53,7 @@ main > section, article > section { max-width: 1480px; margin: auto; padding: 60
 .hero:before { content: '❧'; position: absolute; left: -50px; top: -15px; font: 220px/1 Georgia, serif; color: #a67c35; writing-mode: vertical-rl; opacity: .6; }
 .hero-copy { position: relative; z-index: 2; }
 .hero h1 { font-size: clamp(38px, 4.7vw, 66px); line-height: .98; letter-spacing: -.7px; margin: 0 0 16px; }
+.hero h1 > span { display: block; white-space: nowrap; width: 133.333%; transform: scaleX(.75); transform-origin: left center; }
 .hero-copy > p:not(.hero-motto) { font-size: 17px; line-height: 1.35; margin: 0 0 17px; }
 .hero-buttons { display: flex; gap: 16px; }
 .button { display: inline-flex; align-items: center; justify-content: center; border: 1px solid #c5a46c; border-radius: 6px; background: linear-gradient(#8e2c26, #611817); color: #fff1db; font-size: 13px; font-weight: bold; padding: 10px 22px; line-height: 1.2; box-shadow: inset 0 1px 1px #ffffff1a, 0 2px 4px #0003; margin: 14px 0; }
@@ -171,4 +173,20 @@ summary { cursor: pointer; }
 @media (max-width: 560px) {
   .announcement { font-size: 10px; gap: 5px; min-height: 28px; }.announcement > span { padding: 0 1px; }.announcement .folk-icon { width: 16px; height: 16px; }.site-header { padding-inline: 5%; }.brand { width: 180px; gap: 2px; }.brand-mark { height: 73px; width: 65px; }.brand-mark .folk-icon:first-child { height: 73px; width: 65px; }.brand-mark .folk-icon:last-child { width: 39px; height: 53px; bottom: 3px; }.brand-type > span { font-size: 20px; }.brand-type strong { font-size: 37px; }.brand-type small { font-size: 13px; letter-spacing: 4px; }.header-tools { gap: 16px; margin: 0; }.header-tools .folk-icon { width: 22px; height: 22px; }.main-nav { flex-wrap: wrap; justify-content: center; gap: 10px 20px; font-size: 11px; padding: 12px 0; min-height: 65px; }.collection-menu > div { left: -90px; top: 25px; }.hero { grid-template-columns: 1fr; padding: 25px 7% 15px; }.hero:before { opacity: .25; left: -70px; }.hero h1 { font-size: 49px; }.hero-copy > p:not(.hero-motto) { font-size: 16px; max-width: 350px; }.hero-buttons .button { padding: 12px 20px; font-size: 12px; }.hero-motto { font-size: 10px; margin-top: 14px; }.hero-products { height: 220px; width: 100%; max-width: 360px; justify-self: center; margin-top: 10px; }.hero-shirt { height: 220px; margin-right: 0; width: 65%; }.hero-mug { height: 190px; width: 45%; margin-right: -35px; }.hero-photo-label { bottom: -4px; right: 10px; font-size: 7px; }.hero .sample-arch { font-size: 10px; }.hero .sample-art .folk-icon { max-height: 95px; }main > section, article > section { padding: 36px 5%; }.collection-section { padding: 22px 5%; }.ornament-heading { font-size: 27px; gap: 9px; margin-bottom: 18px; }.ornament-heading:before, .ornament-heading:after { width: 33px; }.collections, .product-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 15px; }.collection { padding: 7px 8px 12px; }.collection-art { height: 123px; }.collection-art > .folk-icon { width: 100px; height: 100px; }.collection h3 { font-size: 21px; min-height: 48px; }.collection .button { font-size: 10px; padding: 9px 10px; }.featured { padding: 23px 5% 15px; }.featured .ornament-heading { font-size: 25px; line-height: 1.1; gap: 5px; }.featured .ornament-heading:before, .featured .ornament-heading:after { width: 26px; font-size: 30px; }.product-art { height: 215px; }.product-card h3 { font-size: 11px; }.product-price { font-size: 15px; }.product-art em { font-size: 6px; letter-spacing: 1px; }.trust-strip { grid-template-columns: 1fr 1fr; gap: 17px 0; padding: 20px 5%; }.trust-strip > div:nth-child(2) { border: 0; }.trust-strip > div { justify-content: flex-start; gap: 12px; padding-left: 12px; }.trust-strip span { font-size: 10px; }.trust-strip .folk-icon { width: 32px; height: 32px; }.newsletter { padding: 25px 5% 20px; min-height: 260px; }.newsletter-copy { width: 100%; margin: 0; }.newsletter h2 { font-size: 30px; }.newsletter p { font-size: 13px; }.newsletter-form { max-width: 350px; margin-top: 18px; }.newsletter-form .button { padding: 10px 12px; font-size: 11px; }.newsletter-copy > small { max-width: 230px; margin: 9px auto 0; }.forest-moon { width: 100px; height: 100px; left: 1%; opacity: .35; bottom: -25px; }.forest-moon .folk-icon { height: 85px; width: 65px; }.tree { opacity: .65; }.site-footer { padding: 25px 6%; gap: 25px 15px; }.site-footer .brand { margin-bottom: 5px; }.site-footer > div:not(.footer-signoff) a { font-size: 11px; }.site-footer h2 { font-size: 10px; }.site-footer > small { font-size: 9px; }.product-detail { grid-template-columns: 1fr; }.product-detail .product-art { height: 390px; }.product-detail h1 { font-size: 36px; }.bag-row { grid-template-columns: 1fr 75px; gap: 12px; }h1 { font-size: 39px; }.preview-notice { font-size: 9px; }.hero { padding-top: 25px; padding-bottom: 15px; }
 }
+/* Reference proportions: artwork above a fixed two-line title and aligned button. */
+.collection-section { padding-top: 14px; padding-bottom: 20px; }
+.collection-section .ornament-heading { font-size: clamp(26px, 2.5vw, 36px); margin-bottom: 16px; }
+.collection { padding: 6px 12px 11px; border-radius: 13px; gap: 0; background: #0d0e0a; }
+.collection-art { height: auto; aspect-ratio: 1.65; background-image: url('/images/collection-folklore.png'); background-size: 200% 200%; background-repeat: no-repeat; width: 100%; }
+.collection-art-0 { background-position: left top; }
+.collection-art-1 { background-position: right top; }
+.collection-art-2 { background-position: left bottom; }
+.collection-art-3 { background-position: right bottom; }
+.collection h3 { display: block; min-height: 0; max-width: none; width: 100%; font-size: clamp(20px, 2vw, 27px); line-height: .98; margin: 2px 0 10px; font-weight: 400; }
+.collection h3 span { display: block; white-space: nowrap; width: 117.647%; transform: scaleX(.85); transform-origin: center; margin-left: -8.8235%; text-align: center; }
+.collection .button { margin-top: auto; width: 86%; max-width: 200px; font-size: 12px; min-height: 34px; border-radius: 8px; }
+.hero:before { content: ''; width: 52px; height: 100%; left: 0; top: 0; opacity: .7; background: repeating-linear-gradient(155deg, transparent 0 26px, #ba8b3b 27px 29px, transparent 30px 54px); border-radius: 45%; transform: rotate(-10deg); }
+@media (min-width: 1101px) { .hero { min-height: 390px; }.hero h1 { font-size: clamp(54px, 4.9vw, 70px); }.hero-shirt { height: 335px; }.hero-mug { height: 290px; } }
+@media (max-width: 800px) { .collection { padding-inline: 8px; }.collection h3 { font-size: 20px; }.collection .button { width: 100%; font-size: 10px; padding-inline: 5px; }.collection-section .ornament-heading { font-size: 29px; } }
+@media (max-width: 560px) { .hero h1 { font-size: clamp(35px, 10vw, 53px); }.hero h1 > span { transform: scaleX(.73); width: 136.986%; }.collection-section { padding-top: 20px; padding-bottom: 20px; }.collection h3 { font-size: clamp(18px, 4.7vw, 25px); }.collection-art { height: auto; aspect-ratio: 1.55; }.collection .button { width: 92%; font-size: 10px; }.collection-section .ornament-heading { font-size: 26px; } }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
