@@ -4,7 +4,7 @@ Independent Next.js / TypeScript / Tailwind storefront for getthesaltstudio.com.
 
 ## Status
 
-Initial implementation; **not a live store**. Checkout defaults to disabled. Product artwork, prices, collection names, and editorial copy are provisional. The approved homepage image was not available in the referenced conversation export; this version interprets the requested dark folklore direction. Illustrations are explicit concept placeholders rather than product photographs.
+Initial implementation; **not a live store**. Checkout defaults to disabled. The homepage now follows the approved screenshot supplied by the owner: black, antique gold, deep red, parchment, reference headings and labels, and matching featured prices. Photos and final artwork remain placeholders as requested. See docs/DESIGN.md for reference fidelity and remaining assets.
 
 ## Local development
 
